@@ -39,7 +39,7 @@ void swap(int &min, int &max){
         int temp=min;
         min=max;
         max=temp;
-	//std::cout<<"Swapping as max is less than min.\n";
+	std::cout<<"Swapping as max is less than min.\n";
      	//std::cout<<"Swap min: "<<min<<" max: "<<max<<"\n";
 }
 
@@ -52,6 +52,11 @@ int main(int argc, char *argv[]) {
     		min = std::stoi(argv[1]);
     		max = std::stoi(argv[2]);
     			if(max!=min){
+				if(max==0){
+					//rand() mod by Zero generates error.
+					std::cout<<"Invalid max should be any non-zero integer.\n";
+					return 0;
+				}
 				if(max<min){
 					//swap by reference.
 					swap(min,max);
